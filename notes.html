@@ -103,7 +103,12 @@ Things to remember:"></textarea>
     updateWordCount();
   });
 })();
-   // Discourages a few common source/inspection shortcuts. This is not real security.
+   // Discourages casual right-click copying; this cannot prevent browser developer tools.
+ document.addEventListener("contextmenu", function (event) {
+ event.preventDefault();
+ });
+
+ // Discourages a few common source/inspection shortcuts. This is not real security.
  document.addEventListener("keydown", function (event) {
  const key = event.key.toLowerCase();
  if (
